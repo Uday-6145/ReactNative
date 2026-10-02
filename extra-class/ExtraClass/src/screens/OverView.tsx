@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 
 const OverView = ({navigation}:any) => {
     const navigateToViewHistory = () => {
-        navigation.navigate('HomeScreen')
+        navigation.navigate('DrawerScreen')
     }
     return (
         <SafeAreaView>
@@ -26,9 +26,7 @@ const OverView = ({navigation}:any) => {
     )
 
 
-    const style = StyleSheet.create({
-        
-    })
+    
 
 }
 
