@@ -18,7 +18,7 @@ export default function CustomDrawerContent( props : any) {
     }
 
     return (
-        <DrawerContentScrollView {...props} style={{ backgroundColor: "'#EF501B'" }}>
+        <DrawerContentScrollView  style={{ backgroundColor: "'#EF501B'" }}>
             <View style={{margin:20, paddingTop:50}}>
                 <FlatList
                     data={DrawerData.drawerItems}

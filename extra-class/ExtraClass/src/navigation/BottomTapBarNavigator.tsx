@@ -10,6 +10,7 @@ import HomeScreen from '../screens/HomeScreen'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import ItemDetails from '../screens/ItemDetails';
+import CartScreen from '../screens/CartScreen';
 
 const Tab = createBottomTabNavigator()
 
@@ -32,7 +33,9 @@ const HomePagenavigator = () => {
 export default function BottomTapBarNavigator() {
 
     return (
-        <Tab.Navigator screenOptions={{ headerShown: false, title: "", tabBarStyle: { backgroundColor: "#e06614ff", borderTopRightRadius: 25, borderTopLeftRadius: 25, paddingTop: 10 } }}>
+
+        
+        <Tab.Navigator initialRouteName='BestSellerScreen' screenOptions={{ headerShown: false, title: "", tabBarStyle: { backgroundColor: "#e06614ff", borderTopRightRadius: 25, borderTopLeftRadius: 25, paddingTop: 10 } }}>
             <Tab.Screen name='Home' component={HomePagenavigator}
                 options={{
                     tabBarIcon: ({focused}) => {
@@ -99,6 +102,23 @@ export default function BottomTapBarNavigator() {
 
 
                 }} />
+
+            <Tab.Screen name="CartScreen" component={CartScreen}
+                options={{
+                    tabBarIcon : ({focused}) => {
+                        return(
+                            <View style={{width: 60,
+                                height: 40,
+                                borderRadius: 20,
+                                backgroundColor: focused ? "white" : "transparent",
+                                justifyContent: "center",
+                                alignItems: "center"}}>
+                                <Icon name='shopping-cart' size={30}/>
+                            </View>
+                        )
+                    }
+                }}
+            />
 
 
         </Tab.Navigator>

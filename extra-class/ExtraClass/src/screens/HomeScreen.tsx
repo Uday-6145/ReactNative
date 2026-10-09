@@ -2,6 +2,9 @@ import { StyleSheet, View, Text, Image, FlatList, TouchableOpacity, Linking, Ale
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { FontAwesome } from "@react-native-vector-icons/fontawesome"
+import { useDispatch, useSelector } from 'react-redux'
+import { AppDispatch, RootState } from '../redux/store'
+import { addItemList } from '../redux/reducers/HomeReducer'
 
 const HomeScreen = ({ navigation }: any) => {
   console.log(navigation, 'this is navigation')
@@ -11,7 +14,22 @@ const HomeScreen = ({ navigation }: any) => {
   const systemScheme = useColorScheme(); // 'light' or 'dark'
   // const [isDarkMode, setIsDarkMode] = useState(systemScheme === 'dark');
 
-  console.log(systemScheme)
+  // const reduxStates = useSelector((state) => {
+  //   console.log(state, "_________________>>>>>>>>>>>>>>>>>>> this is state in HomeScreen")
+  // })
+  const {itemList, loding, myName} = useSelector((state : RootState)=> state.HomeReducer)
+  // console.log(reduxStates)
+
+  const dispatch = useDispatch<AppDispatch>()
+
+
+  const OnCickActive = () => {
+    dispatch(addItemList("uday"))
+  }
+
+  const OncompletedAction = () => {
+      console.log(myName)
+  }
 
 
 
@@ -55,7 +73,7 @@ const HomeScreen = ({ navigation }: any) => {
         <View style={[styles.cardContainer, (index == 0 || index == lastIndex) ? {} : { borderTopWidth: 2 }]} >
           <Image style={{ height: "100%", width: 100, borderRadius: 20 }} source={{ uri: item.strMealThumb }} />
 
-          <View style={{ flexDirection: "column", marginLeft: 20, gap: 15 }}>
+          <View style={[{ flexDirection: "column", marginLeft: 20, gap: 15 }, {}]}>
             <View style={{ flexDirection: "row", gap: 30 }}>
               <Text style={{ width: 150, fontFamily: "Lato-BoldItalic.ttf", fontSize: 18 }}> {item.strMeal}</Text>
               <Text style={{ color: "#fa8c4cff", fontSize: 20, fontWeight: "600" }} ><Text>$</Text>{item.idMeal.slice(3)}</Text>
@@ -86,11 +104,11 @@ const HomeScreen = ({ navigation }: any) => {
       <View style={{ backgroundColor: "#d1a129ff" }}>
         <View style={{ backgroundColor: "white", marginTop: 60, padding: 20, borderTopLeftRadius: 20, borderTopRightRadius: 20 }}>
           <View style={{ flexDirection: "row", justifyContent: "space-evenly", marginBottom: 25 }}>
-            <TouchableOpacity activeOpacity={0.6} style={styles.button}>
+            <TouchableOpacity activeOpacity={0.6} style={styles.button} onPress={() => OnCickActive()}>
               <Text style={{ color: "white" }}>Active</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity activeOpacity={0.6} style={styles.button}>
+            <TouchableOpacity activeOpacity={0.6} style={styles.button} onPress={() => OncompletedAction()}>
               <Text style={{ color: "white" }}>Completed</Text>
             </TouchableOpacity>
 
@@ -104,7 +122,8 @@ const HomeScreen = ({ navigation }: any) => {
 
           <View style={{ width: "100%", height: "100%", flexDirection:"column"}}>
             {
-              lodingState ? <View style={{flex:1, justifyContent:"center"}}><ActivityIndicator size={'large'} /></View> : <FlatList data={initial} renderItem={renderProductItems}/>
+              lodingState ? <View style={{flex:1, justifyContent:"center"}}><ActivityIndicator size={'large'} /></View> : 
+              <FlatList data={initial} renderItem={renderProductItems}/>
             }
 
 

@@ -7,8 +7,8 @@ import CustomDrawerContent from './CustomDrawerContent'
 
 const Drawer = createDrawerNavigator()
 
-export default function DrawerNavigator() {
-
+export default function DrawerNavigator(props: any) {
+  console.log(props, "This is login prop")
   return (
     <Drawer.Navigator screenOptions={{
       drawerStyle: {
@@ -43,7 +43,7 @@ export default function DrawerNavigator() {
       )
     }}
     >
-      <Drawer.Screen name='HomeScreen' component={BottomTapBarNavigator} />
+      <Drawer.Screen name='BottomTabNavigator' component={BottomTapBarNavigator} />
       
 
 

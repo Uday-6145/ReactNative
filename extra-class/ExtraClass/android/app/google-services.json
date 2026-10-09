@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "478969402539",
+    "project_id": "ecommerse-application-react",
+    "storage_bucket": "ecommerse-application-react.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478969402539:android:d9a454bc3c20d3aab413ee",
+        "android_client_info": {
+          "package_name": "com.extraclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478969402539-ps0f9iam4mkfujnltsksqa3tt1boen82.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.extraclass",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "478969402539-u1ofqcjcapaa6suavm766b5oorvimr8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAF_AfUQMprtb_YrQ_F0oxoDvPxvTxT2_E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478969402539-u1ofqcjcapaa6suavm766b5oorvimr8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
