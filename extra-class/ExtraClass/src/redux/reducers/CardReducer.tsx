@@ -2,9 +2,12 @@ import { createSlice } from "@reduxjs/toolkit"
 
 interface InitialStateTy {
     loading : boolean,
-    cartList : {}[]
+    cartList : {}[],
     cartLength: Number
 }
+
+
+
 
 const initialState: InitialStateTy  = {
     loading : false,
@@ -14,12 +17,24 @@ const initialState: InitialStateTy  = {
 
 
 const myCartSlice = createSlice({
-    name : "myProfileSlice",
+    name : "myCartSlice",
     initialState,
     reducers : {
         addItemList : () => {},
         addToCart : (state, action) => {
-            state.cartList = [...state.cartList, {...action.payload}]
+            // state.cartList = [...state.cartList, {...action.payload}] // this will create a dublicate
+
+
+            // update the list
+            const item = action.payload;
+            const alreadyExists = state.cartList.some((cartItem:any) => cartItem.id === item.id)
+
+            if(!alreadyExists){
+                state.cartList = [...state.cartList, {...item}]
+            }
+
+            state.cartLength = state.cartList.length;
+
             // console.log(state, "This represent state")
             // console.log(action, "This represent action")
         }

@@ -12,14 +12,14 @@ import { addToCart } from '../redux/reducers/CardReducer';
 
 
 export default function BestSelller() {
-  const {cartLength, cartList, loading} = useSelector ((props : RootState) => props.CartReducer)
+  // const {cartLength, cartList, loading} = useSelector ((props : RootState) => props.CartReducer).  //useSelector is use to extract/read the data from the store ("yaha par abhi kaam nhi hai")
   const dispatch = useDispatch<AppDispatch >()
 
 
   const addItemsTocart = (prop : any) => {
     dispatch(addToCart(prop))
   }
-  console.log(cartList, "This is current cart list")
+  // console.log(cartList, "This is current cart list")
   
   return (
     

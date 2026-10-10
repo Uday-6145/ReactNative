@@ -50,7 +50,7 @@ export default function LoginScreen(props: any) {
     }
     return (
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-            <GoogleSigninButton style={{}} onPress={() => onPressLogin()} />
+            <GoogleSigninButton onPress={() => onPressLogin()} />
         </View>
     )
 }
