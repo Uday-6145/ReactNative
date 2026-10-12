@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import React, { useEffect } from 'react'
 import {
     GoogleSigninButton,
@@ -51,6 +51,9 @@ export default function LoginScreen(props: any) {
     return (
         <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
             <GoogleSigninButton onPress={() => onPressLogin()} />
+
+
+                
         </View>
     )
 }

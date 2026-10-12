@@ -4,40 +4,41 @@ import { DrawerContentScrollView } from '@react-navigation/drawer'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { DrawerData } from '../utilities/customJson'
 
-export default function CustomDrawerContent( props : any) {
+export default function CustomDrawerContent(props: any) {
 
-    const handlePress = (item:any) => {
-        if(item.action == 'logout'){
+    const handlePress = (item: any) => {
+        if (item.action == 'logout') {
             props.navigation.closeDrawer()
             Alert.alert('logout ', 'this is a logout button')
             return
         }
         props.navigation.navigate(item.route)
-        console.log(props)
-        
+        // console.log(props)
+
     }
 
     return (
-        <DrawerContentScrollView  style={{ backgroundColor: "'#EF501B'" }}>
-            <View style={{margin:20, paddingTop:50}}>
-                <FlatList
-                    data={DrawerData.drawerItems}
-                    keyExtractor={(_,index) => `${index}`}
-                    renderItem={({item}) => {
-                        return (
-                            < TouchableOpacity style={style.drawerItem} onPress={() => handlePress(item)}>
-                                <View style={style.iconBox}>
-                                    <Ionicons name={item.icon} color={'#EF501B'} size={28} />
-                                </View>
+        <DrawerContentScrollView style={{ backgroundColor: "'#EF501B'" }}>
+            <View style={{ margin: 20, paddingTop: 50 }}>
+                {DrawerData.drawerItems.map((item: any, index: number) => (
+                    <TouchableOpacity
+                        key={item.route ?? index}
+                        style={style.drawerItem}
+                        onPress={() => handlePress(item)}
+                    >
+                        <View style={style.iconBox}>
+                            <Ionicons
+                                name={item.icon}
+                                color="#EF501B"
+                                size={28}
+                            />
+                        </View>
 
-                                <Text style={style.draweLable}>{item.label}</Text>
-
-                            </TouchableOpacity >
-                        )
-                    }}
-
-                />
-
+                        <Text style={style.draweLable}>
+                            {item.label}
+                        </Text>
+                    </TouchableOpacity>
+                ))}
             </View>
 
         </DrawerContentScrollView>

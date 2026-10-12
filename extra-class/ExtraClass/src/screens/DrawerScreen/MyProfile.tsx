@@ -10,7 +10,7 @@ export default function MyProfile(props: any) {
         <Text>Button for home</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={() => props.navigation.navigate("DrawerScreen")}>
+      <TouchableOpacity onPress={() => props.navigation.navigate("MainDashboard")}>
         <Text>Button for drawer navigation</Text>
       </TouchableOpacity>
     </View>
